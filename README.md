@@ -206,6 +206,10 @@ git fetch
 git fetch
 ```
 
+## 文件忽略
+
+.gitignore
+
 ## 常見問題
 
 沖突解決
