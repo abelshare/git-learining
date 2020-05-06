@@ -128,6 +128,9 @@ git log
 ```bash
 # 顯示當前分支的版本歷史
 git log
+
+# 顯示當前分支簡約版的歷史
+git log --pretty=oneline
 ```
 
 ### 分支管理
