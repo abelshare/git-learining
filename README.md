@@ -76,7 +76,9 @@ git commit -m "message"
 #將文件（包括沒有執行`add`命令的文件）提交至本地倉庫並添加說明
 git commit -a -m [message]
 
-#1. 可以修改上一次的提交信息。
+#可以修改上一次的提交信息。
+git commit --amend -m "message"
+
 #2. 可以將最近的修改追加到上一次的提交上。
 git commit --amend
 ```
