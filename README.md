@@ -96,7 +96,7 @@ git reset
 # 重置暫存區的指定文件，與上一次commit保持一致，但工作區不變
 git reset [file]
 
-# 重置暫存區與工作區，與上一次commit保持一致
+# 重置暫存區與工作區，與上一次commit保持一致，危險
 git reset --hard
 
 # 重置當前分支的指針為指定commit，同時重置暫存區，但工作區不變
