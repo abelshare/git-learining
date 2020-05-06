@@ -79,8 +79,8 @@ git commit -a -m [message]
 #可以修改上一次的提交信息。
 git commit --amend -m "message"
 
-#2. 可以將最近的修改追加到上一次的提交上。
-git commit --amend
+#提交指定文件
+git commit -o [file] -m "message"
 ```
 
 git status
@@ -97,13 +97,10 @@ git reset
 git reset [file]
 
 # 重置暫存區與工作區，與上一次commit保持一致，危險
-git reset --hard
+git reset --hard [commit]
 
 # 重置當前分支的指針為指定commit，同時重置暫存區，但工作區不變
 git reset [commit]
-
-# 重置當前分支的HEAD為指定commit，同時重置暫存區和工作區，與指定commit一致
-git reset --hard [commit]
 
 # 重置當前HEAD為指定commit，但保持暫存區和工作區不變
 git reset --keep [commit]
@@ -159,14 +156,17 @@ git checkout -b [branch]
 git checkout
 
 ```bash
+# 恢復到某個指定commit
+git checkout [commit]
+
+# 切換到某個分支
+git checkout [branch-name]
+
 # 恢復暫存區的指定文件到工作區
 git checkout [file]
 
 # 恢復某個commit的指定文件到暫存區和工作區
 git checkout [commit] [file]
-
-# 恢復暫存區的所有文件到工作區
-git checkout .
 ```
 
 git merge
@@ -198,14 +198,22 @@ git pull
 # 上传本地指定分支到远程仓库
 $ git push [remote] [branch]
 ```
-1. git fetch：
+
+git fetch
+
+```bash
+#獲取遠程服務器分支
+git fetch
+```
 
 ## 常見問題
 
-1、沖突解決
-
-2、提交回滾
+沖突解決
 
 ## 工具
 
 https://learngitbranching.js.org/?NODEMO
+
+## 作業
+
+![git](./img/work.png)
