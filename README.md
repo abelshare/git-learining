@@ -2,96 +2,204 @@
 
 ## GIT 介紹
 
-Git 是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。
+Git 是一個開源的分佈式版本控制系統，可以有效、高速地處理從很小到非常大的項目版本管理。  
 
 ![git](./img/git.png)  
 
-![git](./img/info.png)
-Workspace：工作区  
-Index / Stage：暂存区  
-Repository：仓库区（或本地仓库）  
-Remote：远程仓库
+![git](./img/info.png)  
+Workspace：工作區  
+Index / Stage：暫存區  
+Repository：倉庫區（或本地倉庫）  
+Remote：遠程倉庫  
 
-## GIT 四种状态
+## GIT 四種狀態
 
-1. 已修改：表示修改了文件，但还没保存到仓库中。
-2. 已暫存：表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
-3. 已提交：表示数据已经安全地保存在本地仓库中。
-4. 已推送：表示已經同步至運程服務器中。
+1. 已修改：表示修改了文件，但還沒保存到倉庫中。
+2. 已暫存：表示對一個已修改文件的當前版本做了標記，使之包含在下次提交的快照中。
+3. 已提交：表示數據已經安全地保存在本地倉庫中。
+4. 已推送：表示已經同步至遠程服務器中。
 
 ![git](./img/state.png)  
-工作区，暂存区，仓库区
+工作區，暫存區，倉庫區
 
 ## GIT 常用命令
 
 ### 初始化
 
-1. git init  
-  在当前目录新建一个Git代码库
+git init
+```bash
+# 在當前目錄新建一個Git代碼庫
+git init
 
-2. git init [project-name]  
-  新建一个目录，将其初始化为Git代码库
+# 新建一個目錄，將其初始化為Git代碼庫
+git init [project-name]
+```
 
-3. git clone [url]  
-  下载一个项目和它的整个代码历史
+git clone [url]
+  
+```bash
+# 下載一個項目和它的整個代碼歷史
+git clone [url]
+```
 
-4. git remote add origin [url]  
-  给本地仓库加一个远程的仓库，一般用於第一次提交
+git remote add origin [url]
+
+```bash
+# 增加一個新的遠程倉庫，並命名
+git remote add origin [url]
+```
 
 ### 常規
 
-1. git add [cmd|file] ：將文件添加至暫存區  
-  cmd：  
-   `.`：提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件  
-   `-u`：提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)  
-   `-A`：提交所有变化  
-  file：指定文件名
+git add [cmd|file]
 
-2. git commit [cmd] ：將文件提交至本地倉庫
-   cmd：  
-   `-m [message]`：將文件提交至本地倉庫并添加說明  
-   `-a -m [message]`：將文件（包括沒有執行`add`命令的文件）提交至本地倉庫并添加說明  
-   `-- amend`：  
-      1. 可以修改上一次的提交信息。
-      2. 可以将最近的修改追加到上一次的提交上。
+```bash
+#提交新文件(new)和被修改(modified)文件，不包括被刪除(deleted)文件
+git add .
 
-3. git status：查看當前工作區狀態
+#提交新文件(new)和被修改(modified)文件，不包括被刪除(deleted)文件
+gid add -u
 
-4. git reset  
+#提交所有變化
+git add -A
 
-5. git tag [cmd]
-   cmd：  
-   `[tag]`：新建一个tag在当前commit  
-   `[tag] [commit]`：新建一个tag在指定commit  
-   `-d [tag]`：删除本地tag  
-6. git log：显示当前分支的版本历史
+#提交指定文件
+git add [file1] [file2]
+```
+
+git commit [cmd] ：將文件提交至本地倉庫
+
+```bash
+#將文件提交至本地倉庫並添加說明
+git commit -m "message"
+
+#將文件（包括沒有執行`add`命令的文件）提交至本地倉庫並添加說明
+git commit -a -m [message]
+
+#1. 可以修改上一次的提交信息。
+#2. 可以將最近的修改追加到上一次的提交上。
+git commit --amend
+```
+
+git status
+
+```bash
+# 顯示有變更的文件
+git status
+```
+
+git reset
+
+```bash
+# 重置暫存區的指定文件，與上一次commit保持一致，但工作區不變
+git reset [file]
+
+# 重置暫存區與工作區，與上一次commit保持一致
+git reset --hard
+
+# 重置當前分支的指針為指定commit，同時重置暫存區，但工作區不變
+git reset [commit]
+
+# 重置當前分支的HEAD為指定commit，同時重置暫存區和工作區，與指定commit一致
+git reset --hard [commit]
+
+# 重置當前HEAD為指定commit，但保持暫存區和工作區不變
+git reset --keep [commit]
+```
+
+git tag [cmd]
+
+```bash
+# 列出所有tag
+git tag
+
+# 新建一個tag在當前commit
+git tag [tag]
+
+# 新建一個tag在指定commit
+git tag [tag] [commit]
+
+# 刪除本地tag
+git tag -d [tag]
+```
+
+git log
+
+```bash
+# 顯示當前分支的版本歷史
+git log
+```
 
 ### 分支管理
 
-1. git branch [branch]：新建分支  
+git branch
 
-2. git checkout [cmd]  
-  cmd：  
-   `[branch-name]`：檢出指定分支  
-   `-b [branch-name]`：創建新的分支并檢出  
+```bash
+# 列出所有本地分支
+git branch
 
-3. git merge  [branch-name]：合并指定分支到当前分支
-  
-4. git cherry-pick [commit]：合并进当前分支
+# 列出所有遠程分支
+git branch -r
+
+# 列出所有本地分支和遠程分支
+git branch -a
+
+# 新建一個分支，但依然停留在當前分支
+git branch [branch-name]
+
+# 新建一個分支，並切換到該分支
+git checkout -b [branch]
+```
+
+git checkout
+
+```bash
+# 恢復暫存區的指定文件到工作區
+git checkout [file]
+
+# 恢復某個commit的指定文件到暫存區和工作區
+git checkout [commit] [file]
+
+# 恢復暫存區的所有文件到工作區
+git checkout .
+```
+
+git merge
+
+```bash
+# 合併指定分支到當前分支
+git merge [branch]
+```
+  
+git cherry-pick
+
+```bash
+# 選擇一個commit，合併進當前分支
+git cherry-pick [commit]
+```
 
 ### 遠程操作
 
-1. git push：
-2. git pull：
-3. git fetch：
+git push
+
+```bash
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+```
+
+git pull
+
+```bash
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+```
+1. git fetch：
 
 ## 常見問題
 
-1、沖突解決：
+1、沖突解決
 
-2、暫存提交回滾：
-
-3、提交提交回滾：
+2、提交回滾
 
 ## 工具
 
