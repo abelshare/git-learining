@@ -216,8 +216,11 @@ git fetch
 
 ## 工具
 
-https://learngitbranching.js.org/?NODEMO
+https://learngitbranching.js.org
 
 ## 作業
 
+作業內容：
+使用https://learngitbranching.js.org 工具進入沙盒環境，完成以下圖片git樹，并記錄下相應的命令，完成后以截圖的形式提交至講師處
+截圖命名：以自己的命字命名
 ![git](./img/work.png)
