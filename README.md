@@ -1,16 +1,16 @@
-# GIT基礎教程
+# GIT 基礎教程
 
 ## GIT 介紹
 
-Git 是一個開源的分佈式版本控制系統，可以有效、高速地處理從很小到非常大的項目版本管理。  
+Git 是一個開源的分佈式版本控制系統，可以有效、高速地處理從很小到非常大的項目版本管理。
 
-![git](./img/git.png)  
+![git](./img/git.png)
 
 ![git](./img/info.png)  
 Workspace：工作區  
 Index / Stage：暫存區  
 Repository：倉庫區（或本地倉庫）  
-Remote：遠程倉庫  
+Remote：遠程倉庫
 
 ## GIT 四種狀態
 
@@ -27,6 +27,7 @@ Remote：遠程倉庫
 ### 初始化
 
 git init
+
 ```bash
 # 在當前目錄新建一個Git代碼庫
 git init
@@ -36,7 +37,7 @@ git init [project-name]
 ```
 
 git clone [url]
-  
+
 ```bash
 # 下載一個項目和它的整個代碼歷史
 git clone [url]
@@ -175,7 +176,7 @@ git merge
 # 合併指定分支到當前分支
 git merge [branch]
 ```
-  
+
 git cherry-pick
 
 ```bash
@@ -208,11 +209,34 @@ git fetch
 
 ## 文件忽略
 
-.gitignore
+在`Git`倉庫下新建名為`.gitignore`的文件
+
+```javascript
+// 以正則匹配的方式選擇需忽略提交的文件
+// 例如：
+
+/node_modules  // 忽略node_modules/
+.gitignore  // 忽略.gitignore文件
+*.zip  // 忽略以.zip後綴結尾的文件
+
+// 更多參考：https://git-scm.com/docs/gitignore
+
+```
 
 ## 常見問題
 
-沖突解決
+沖突解決:
+`Git`用<<<<<<<，=======，>>>>>>>標記出不同分支的內容，刪除標記符號后，取本地或線上內容後保存即可
+
+```javascript
+<<<<<<< HEAD
+// 本地
+Creating a new branch is quick & simple.
+=======
+// 遠程
+Creating a new branch is quick AND simple.
+>>>>>>>
+```
 
 ## 工具
 
@@ -221,6 +245,16 @@ https://learngitbranching.js.org
 ## 作業
 
 作業內容：
-使用https://learngitbranching.js.org 工具進入沙盒環境，完成以下圖片git樹，并記錄下相應的命令，完成后以截圖的形式提交至講師處
+使用https://learngitbranching.js.org 工具進入沙盒環境  
+完成以下實際開發場景的 git 樹，并記錄下相應的命令，完成后以截圖的形式提交至講師處  
 截圖命名：以自己的命字命名
+
+1、v1 版本先行開發
+2、v1 執行近結尾時，v2 版本同時進行
+3、v1 完成合并上線，v2 同步最新代碼后繼續開發
+4、v1 進行熱修復，并合并上線，v2 同步最新代碼
 ![git](./img/work.png)
+
+## 答案
+
+![git](./img/work2.png)
